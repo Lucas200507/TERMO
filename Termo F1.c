@@ -7,9 +7,9 @@ int main(){
     char palavra[] = {"uva"};
     char digitado[4];
     int correto, tentativas = 1, i, j, achou;
-    char Lcorretas[20] = ""; // Letras corretas em posiÁıes diferentes
+    char Lcorretas[20] = ""; // Letras corretas em posi√ß√µes diferentes
     char Lincorretas[20] = ""; // Letras incorretas
-    char Lposicao[10] = ""; // Letras corretas em posiÁıes iguais
+    char Lposicao[10] = ""; // Letras corretas em posi√ß√µes iguais
     char aux[] = {" - "};
     
     setlocale(LC_ALL, "Portuguese");
@@ -30,7 +30,7 @@ int main(){
         // Remove o caractere de nova linha do final de 'digitado'
         digitado[strcspn(digitado, "\n")] = '\0';
         
-        //VERIFICA«√O DO TAMANHO DA PALAVRA
+        //VERIFICA√á√ÉO DO TAMANHO DA PALAVRA
         if (strlen(digitado) > strlen(palavra)){
             printf("A palavra digitada possui mais de 3 caracteres, digite novamente.\n");
             continue;
@@ -40,10 +40,10 @@ int main(){
         }
 
 
-        //VERIFICA«√O DA PALAVRA
+        //VERIFICA√á√ÉO DA PALAVRA
         if (strcmp(palavra, digitado) == 0){
             printf("-----------------------------------------------------\n");
-            printf("               A PALAVRA EST¡ CORRETA!                \n");
+            printf("               A PALAVRA EST√Å CORRETA!                \n");
             printf("-----------------------------------------------------\n");
             correto = 1;
         } else {
@@ -51,7 +51,7 @@ int main(){
         	int tamanho_palavra = strlen(palavra);
         	
 			for (i = 0; i < tamanho_palavra; i++) {
-                char temp[2] = {digitado[i], '\0'};  // Tempor·rio para a letra atual
+                char temp[2] = {digitado[i], '\0'};  // Tempor√°rio para a letra atual
                 temp[strcspn(temp, "\n")] = '\0';
                 
                 if (palavra[i] == digitado[i]) {
@@ -61,12 +61,12 @@ int main(){
                 } else {
                 	Lposicao[i] = '_';
                     achou = 0;
-                    // Verifica se a letra existe na palavra, mas em outra posiÁ„o
+                    // Verifica se a letra existe na palavra, mas em outra posi√ß√£o
                     for (j = 0; j < tamanho_palavra; j++) {
                     	
                         if (palavra[i] == digitado[j]) {
                             achou = 1;
-                            
+                            break;
                         }
                     }
                     if (achou) {
@@ -81,10 +81,10 @@ int main(){
             }
 
             printf("-----------------------------------------------------\n");
-            printf("As letras nas posiÁıes corretas s„o: \n");
+            printf("As letras nas posi√ß√µes corretas s√£o: \n");
             printf("\n                    %s                \n\n", Lposicao);
-            printf("As letras corretas s„o: %s\n", Lcorretas);
-            printf("As letras incorretas s„o: %s\n", Lincorretas);
+            printf("As letras corretas s√£o: %s\n", Lcorretas);
+            printf("As letras incorretas s√£o: %s\n", Lincorretas);
             tentativas++;
             printf("-----------------------------------------------------\n");
 
@@ -94,7 +94,7 @@ int main(){
 
 
     if (correto == 0) {
-        printf("N˙mero m·ximo de tentativas alcanÁado. A palavra correta era '%s'.\n", palavra);
+        printf("N√∫mero m√°ximo de tentativas alcan√ßado. A palavra correta era '%s'.\n", palavra);
     }
     
     return 0;
